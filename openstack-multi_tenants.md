@@ -1,6 +1,8 @@
 Objective 1 - Mayuri
 
 Objective 1 - Gayathri
+
+
 a. Nova: Nova is for provisioning compute instances and supporting the creation of virtual machines, bare metal servers, and limited support of containers.
 b. Swift: Swift is an object storage service for cloud storage like google drive, apple cloud, microsoft azure. It is used mainly to provide storage facilities to users that is hosted on the cloud.
 
