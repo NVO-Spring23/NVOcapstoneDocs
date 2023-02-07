@@ -21,7 +21,7 @@ d. The auto scaling of the instances should be handled considering following req
 
 **Evaluation period: 40** (this value denotes the time period in seconds for monitoring CPU usage)
 
-#####**Steps to achieve objective**
+###**Steps to achieve objective**
 
 **Step 1:** Create a network VN-A using the steps in the previous objective
 
