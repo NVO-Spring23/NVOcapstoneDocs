@@ -119,3 +119,83 @@ d. The auto scaling of the instances should be handled considering following req
 Objective 3 - Vishal
 
 Objective 4 - Willy
+
+
+# Objective 4 – Creating Security Groups and Rules
+###### documented by <em>Willy Fernandez</em>
+
+In the below steps, I will go through the process to create a security group in Horizon Openstack and add rules to permit or restrict the traffic.
+ 
+Log in to the horizon web page and select the respective project, in my case the project is Lab2. Select the Network tab on the sidebar and click Security Groups.
+
+ 
+
+Once we are on the security group page, we need to click the Create Security Group button (red square on the screenshot):
+
+ 
+
+In the popup box that comes up, set and name and description (it is highly recommended to have a  meaningful name that can describe the rule, for example, VN1-SSH)
+
+
+
+ 
+ 
+If the creation is successful, it will bring you back to the security group page, we can see the new group name at the top where it says Manage Security Group Rules, in my case VN-A_VM-2_no_ping, 
+
+The next step is click Add Rule (red square on the screenshot).
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+This will bring up a new dialog box where we can select the parameters for your security group rule.
+
+
+
+ 
+In my case, I created a rule to allow ICMP for egress traffic to the network 192.168.200.0/24
+
+
+ 
+
+ 
+There are many options to filer:
+
+
+
+ 
+
+
+
+
+
+
+ 
+Once the Security group is completed, now we need to associate the new Security Group with the Instance previously created.
+
+Go to Compute > Instances. Click the drop-down menu in the row containing information about to which you wish to apply your rule (columns Actions). Select Edit Security Groups:
+
+ 
+After selecting the Edit Security Groups, we can see the Security Groups associated with this instance:
+
+
+ 
+
+In the left section, we can see available security groups and in the right section you can see security groups already attached to your VM. 
+
+To apply a Security Group instance, click the (+) button next to that group, and to remove it, click the (-) button next to it.
+
+  
+
+After assigning the Security Group, the rules are applied to the VMs immediately and we are ready to go.
+
+
