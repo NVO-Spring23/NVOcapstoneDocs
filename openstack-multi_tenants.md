@@ -116,7 +116,7 @@ d. The auto scaling of the instances should be handled considering following req
 
 **Step 6:** You can install “stress” package on your instance, to increase the CPU utilization. The cirros OS doesn’t support package installation, so, I wrote a bash script with loops and ran it on the VM.
 
-Objective 3 - Vishal
+# Objective 3 
 
 ## Part 1 (Optional) – Configuration of Separte User, Project and addition of New Image + Flavor:
 
