@@ -7,10 +7,13 @@ Objective 2 - Nikhitha
 
 You are working in a cloud firm that has a single instance of an application running on OpenStack cloud platform. The firm is planning to add a functionality to the single running instance of the application that can autoscale/replicate itself to multiple instances whenever the compute capacity (eg. CPU cycles or memory) reaches a pre-defined threshold. Since you are familiar with the Python programming and REST API, you are being assigned a following task:
 
-1. Write a simple Python application that can ssh into the available “cirros” instance that was created in the above objective and extract the CPU utilization information. [As an alternative, you may use ceilometer service for retrieving this telemetry data] 
-1. If the CPU utilization exceeds a threshold value, for example 20%, spin up additional instances of cirros. The creation of cirros instances should be triggered whenever the compute capacity (eg. CPU utilization) exceeds a predefined threshold. In order to collect CPU utilization data, you’ll have to monitor its usage using appropriate commands.
-1. The Python application can use Nova REST API to create additional “Cirros” instances whenever the above condition occurs. 
-1. The auto scaling of the instances should be handled considering following requirements:
+a. Write a simple Python application that can ssh into the available “cirros” instance that was created in the above objective and extract the CPU utilization information. [As an alternative, you may use ceilometer service for retrieving this telemetry data] 
+
+b. If the CPU utilization exceeds a threshold value, for example 20%, spin up additional instances of cirros. The creation of cirros instances should be triggered whenever the compute capacity (eg. CPU utilization) exceeds a predefined threshold. In order to collect CPU utilization data, you’ll have to monitor its usage using appropriate commands.
+
+c. The Python application can use Nova REST API to create additional “Cirros” instances whenever the above condition occurs. 
+
+d. The auto scaling of the instances should be handled considering following requirements:
 
 **Max scaling size: 4** (this value denotes the maximum number of instances that should be spun)
 
@@ -18,6 +21,7 @@ You are working in a cloud firm that has a single instance of an application run
 
 **Evaluation period: 40** (this value denotes the time period in seconds for monitoring CPU usage)
 
+#####**Steps to achieve objective**
 
 **Step 1:** Create a network VN-A using the steps in the previous objective
 
