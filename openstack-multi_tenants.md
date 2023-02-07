@@ -118,6 +118,117 @@ d. The auto scaling of the instances should be handled considering following req
 
 Objective 3 - Vishal
 
+## Part 1 (Optional) – Configuration of Separte User, Project and addition of New Image + Flavor:
+
+1.	Go to the “Projects” page under Identity and create a new project (Note: This requires admin privileges)
+
+![image](https://user-images.githubusercontent.com/48782286/217306168-6c5c1baf-fccd-4175-9b97-977d1feb6056.png)
+
+2.	Create the new project by assigning it a name and a description (optional) – and click on create Project
+
+![image](https://user-images.githubusercontent.com/48782286/217306245-4e00fc85-9dd3-4d54-94e2-aea06eee4831.png)
+
+3.	Click on “Users” under Identity and create a new user
+
+![image](https://user-images.githubusercontent.com/48782286/217306298-5d89dd1c-2745-43c8-914a-4f42ff6ece5d.png)
+
+4.	Create a new user by assigning a user name, password and by selecting a project that was created in the previous step,  you can additionally set the user as an admin for that project
+
+![image](https://user-images.githubusercontent.com/48782286/217306355-333c78de-6b52-4818-9031-3df6f412d0dc.png)
+
+5.	Log out of the current user and log back in with the new user created.
+
+6.	Download any image (Cirros, Ubuntu, CentOS etc) and navigate to the “images” section under compute
+
+![image](https://user-images.githubusercontent.com/48782286/217306437-30a67e88-81df-45b7-8bc6-64a18ece785d.png)
+
+7.	Click on create new image, and select the image that you downloaded. Additionally you can name the image, give it a description and make it a public image (accessable by other users)
+
+![image](https://user-images.githubusercontent.com/48782286/217306474-f5ac8735-45a7-4a45-9a0c-9c8fcf97cd6c.png)
+
+8.	Next, create a flavor by going to the “flavor” section under “compute” under “Admin” . You need admin permissions to add a new flavor. Click on create flavor.
+
+![image](https://user-images.githubusercontent.com/48782286/217306517-39e85aaa-b502-4d71-ac19-82ace46876ee.png)
+
+9.	Specify parameters for the new flavor, and give it a name and click on create flavor.
+
+![image](https://user-images.githubusercontent.com/48782286/217306557-1155b65a-7bec-4801-858c-f8e3b313460f.png)
+
+## Part 2 – Configuration of Virtual Networks A and B:
+
+1.	To create Networks A and B, Click on “networks” under Network and click on “New Network”
+ 
+ ![image](https://user-images.githubusercontent.com/48782286/217306732-2b813d00-920c-4350-9912-b6524bebecc2.png)
+
+2.	Give a network name, and click on next. Under Subnet, Give any subnet name and give the network address for the subnet. In this example, Network A has an ip of 192.168.100.0/24, the gateway ip is 192.168.100.1 and click next
+ 
+ ![image](https://user-images.githubusercontent.com/48782286/217306767-e3bdd19c-52a9-4fc4-80da-c05baa9ed4ac.png)
+
+3.	Under subnet details, enable dhcp, create an address scope of your liking. In this example, we can set the scope to be 192.168.100.10,192.168.100.250. Additionally set any DNS name server, in this example, we’re configuring 8.8.8.8 (Google) and click on create.
+  
+  ![image](https://user-images.githubusercontent.com/48782286/217306792-3f5e4d61-956f-4ad0-b59d-ae38caf93aa1.png)
+
+4.	Repeat the same process with appropriate IP addresses for network B.
+ 
+ ![image](https://user-images.githubusercontent.com/48782286/217306817-91f48722-a062-4864-b30a-8db7287a75e4.png)
+
+## Part 2 – Launching VMs in the VNs:
+
+1.	Go to compute and click on instances and click on Launch Instance. In this example, we’ll be using the default cirros image that ships with openstack on the m1.nano flavor.
+ ![image](https://user-images.githubusercontent.com/48782286/217306948-72da2843-3003-4857-beb3-2c4776e0d481.png)
+
+2.	Give a name to the instance on the first page and click on next
+ ![image](https://user-images.githubusercontent.com/48782286/217306971-8ad582b3-9806-4681-8280-fb7341bd6406.png)
+
+3.	Select the cirros image by clicking on the up arrow key corresponding to the image. 
+ ![image](https://user-images.githubusercontent.com/48782286/217306983-fce4eb98-2ffd-4e84-b098-e214992bec4f.png)
+
+
+4.	Select the flavor by clicking on the up arrow key corresponding to the flavor desired. 
+ ![image](https://user-images.githubusercontent.com/48782286/217307005-ca9baf1d-6236-467c-a7a5-c9fcaf85c812.png)
+
+5.	Select the appropriate network for the VM , For a VM in VNA select the VNA network by click on the up arrow key, similarly by selecting VNB for a VM in the B network. After selecting the network, click on launch instance.
+ ![image](https://user-images.githubusercontent.com/48782286/217307025-eeac4ba5-3ee9-430a-b652-88c694043237.png)
+
+6.	Follow similar steps with appropriate networks for VMs in A and B networks. After creation of the VMs, proceed to the next step. 
+7.	After creation of the VMs, you should be able to ping between VMs in the same network and unable to ping between VMs in different networks.
+
+
+## Part 3 – Enabling internet access to the VMs:
+
+1.	To enable internet access to the VMs, you need to assign each VM a floating IP address. However, to assign a VM a floating IP address from a subnet (public in this case), there should be a route between the two networks.
+2.	To assign a VM in VNA a floating IP address from the public subnet, we need to add a router between the public network and VNA.
+3.	To create a router, click on Routers under network and click on Create Router.
+ 
+ ![image](https://user-images.githubusercontent.com/48782286/217307230-7ee8de04-eb07-461d-a797-bf3f901c0c8b.png)
+
+4.	Give a name to the router, and assign the public network (network with internet access) as the external network.
+ ![image](https://user-images.githubusercontent.com/48782286/217307248-ffaf49ec-857c-4da6-a22c-b8826ead945d.png)
+
+5.	Open the router configuration UI, and under interfaces add an interface, which connects the router to the network that you wish to have internet access in. In this scenario, we want internet acces in both networks (A and B), so we can two interfaces to the router, one in VNA and one in VNB. (this will however allow inter network communication)
+ ![image](https://user-images.githubusercontent.com/48782286/217307265-eb3c0e7f-e954-40cd-9bd9-fe0d8e30d21e.png)
+
+Perform the process for VNB.
+After adding the routers and interfaces, we can add floating IPs to our project and assign them to the VMs
+
+
+## Part 3.1 – Creating and Assigning Floating IP addresses:
+
+1.	Click on floating IPs under Network and click on allocate IPs to Project
+ ![image](https://user-images.githubusercontent.com/48782286/217307370-4b349df8-5cfa-4b2d-831e-127a208fabf6.png)
+
+2.	Select the pool with external internet access. In this scenario, it is the public pool. Click on allocate IP.
+ ![image](https://user-images.githubusercontent.com/48782286/217307381-7e2d1f9e-2ac0-414b-b86e-c6c9e39e1b59.png)
+
+3.	Click on the associate button that corresponds to the new floating IP address that you just created. After clicking on the associate button, select the VM you would like to have internet access to.
+ ![image](https://user-images.githubusercontent.com/48782286/217307405-72d19273-07fe-46fc-9491-3bb8d4866c28.png)
+![image](https://user-images.githubusercontent.com/48782286/217307426-a401f405-c332-451b-9097-30246d8b886e.png)
+
+ 
+4.	After associating a floating ip address with the VM, you should have internet access to your VMs. Additionally if you used a common router for both networks, you should also have inter network communication. Refer to sample network topology diagram below.
+
+![image](https://user-images.githubusercontent.com/48782286/217307441-6731dac0-82fe-4da9-88c2-75e65e8cc32a.png)
+
 Objective 4 - Willy
 
 
