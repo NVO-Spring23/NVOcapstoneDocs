@@ -128,12 +128,10 @@ In the below steps, I will go through the process to create a security group in 
  
 **Step 1:** Log in to the horizon web page and select the respective project, in my case the project is Lab2. Select the Network tab on the sidebar and click Security Groups.
 
- ![Picture1](https://user-images.githubusercontent.com/124555068/217168275-b68cfd23-4429-4419-9870-b3b5237305c4.jpg)
-
+![Picture1](https://user-images.githubusercontent.com/124555068/217174487-ebee5afa-c501-41f3-91e0-a6c3ca28d5dc.jpg)
 **Step 2:** Once we are on the security group page, we need to click the Create Security Group button (red square on the screenshot):
 
- ![Picture2](https://user-images.githubusercontent.com/124555068/217168298-4a8293c7-73cc-419b-88c6-a1ed71fae0ac.jpg)
-
+![Picture2](https://user-images.githubusercontent.com/124555068/217174656-86b2e7e8-5d7e-4fca-8395-3ee4d2dbb2c0.jpg)
 **Step 3:** In the popup box that comes up, set and name and description (it is highly recommended to have a  meaningful name that can describe the rule, for example, VN1-SSH)
 
 <img width="444" alt="Picture3" src="https://user-images.githubusercontent.com/124555068/217168317-92fcfa94-4658-4a7d-a0ad-fa256f8fd6bd.png">
@@ -150,7 +148,7 @@ In the below steps, I will go through the process to create a security group in 
  
 In my case, I created a rule to allow ICMP for egress traffic to the network 192.168.200.0/24
 
-<img width="541" alt="Picture6" src="https://user-images.githubusercontent.com/124555068/217168411-5d13de0b-1714-4876-9840-50e4449be412.png">
+<img width="541" alt="Picture6" src="https://user-images.githubusercontent.com/124555068/217174913-138818db-eef8-4171-9439-6fa9f4dbbba3.png">
  
 There are many options to filer:
 
@@ -160,10 +158,9 @@ There are many options to filer:
 
 Go to Compute > Instances. Click the drop-down menu in the row containing information about to which you wish to apply your rule (columns Actions). Select Edit Security Groups:
 
-![Picture8](https://user-images.githubusercontent.com/124555068/217168464-ae83f010-d2c2-4d59-9939-fe447c62bc4a.jpg)
+![Picture8](https://user-images.githubusercontent.com/124555068/217174942-71e905e7-d201-47cc-8431-d5cb97c98e3d.jpg)
 
 **Step 7:** After selecting the Edit Security Groups, we can see the Security Groups associated with this instance:
-
 
 <img width="363" alt="Picture8" src="https://user-images.githubusercontent.com/124555068/217168478-2fb2a790-dcd7-418c-9b20-b91596d12651.png">
  
