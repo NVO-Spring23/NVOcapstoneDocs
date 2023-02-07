@@ -1,5 +1,6 @@
 Objective 1 - Mayuri
 
+Objective 1 - Gayathri
 Objective 2 - Nikhitha
 # Objective 2 – Auto-scaling application using Python
 ###### documented by <em>Nikhitha Atluri</em>
