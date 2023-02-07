@@ -21,7 +21,11 @@ You are working in a cloud firm that has a single instance of an application run
 
 **Step 1:** Create a network VN-A using the steps in the previous objective
 **Step 2:** Create a VM with a cirros image and ngn flavor and allocate a floating IP address, for it to be access the internet 
+
+
+<picture>
 <img width="612" alt="image" src="https://user-images.githubusercontent.com/38699144/217115339-d0161cd4-7f7b-46d4-9897-9f45ac8b1521.png">
+</picture>
 
 **Step 3:** On your openstack server, create a python file in the devstack environment. To get the contents of the instances, we don’t need to SSH into the instances, rather, we can use the Nova REST API to poll any information. We can connect to a project in openstack by using the client module in the following way.***[Obj 2a]***
 <img width="554" alt="image" src="https://user-images.githubusercontent.com/38699144/217115308-4e825cfc-5687-4d0b-a798-ca63e0d7e830.png">
