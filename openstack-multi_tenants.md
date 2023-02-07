@@ -1,47 +1,65 @@
-Objective 1 - Mayuri
+# Objective 1 - Mayuri
+# Objective 1 - OpenStack: Overview
+\1. Explain the following components of OpenStack -
+
+a. Nova -   It is the compute component responsible for the vm creation
+
+b. Swift -   used for object storage and horizontally scalable. It is ideal for storing unstructured data.
+
+c. Cinder - Provides block storage in Openstack called as Cinder Volumes It manages snapshots.
+
+d. Neutron – This creates network infrastructure for the virtual machines.
+
+e. Glance – it is used for image management for VMs. It stores the images and template for VM
+
+f. Keystone – It is responsible for authentication.
+
+g. Horizon - It provides the web-based UI for services like nova, neutron, cinder etc.
+
+2. What is the difference between Users and Roles?
+
+Roles defines the set of privileges that the users can perform.
+
+3. What is a hypervisor and which hypervisors are supported in OpenStack?
+
+The hypervisor manages virtual machines. Openstack supports hypervisors like KVM, VMware sphere, QEMU etc.
+
+4. Explain the meaning of ‘flavor’ in OpenStack.
+
+Flavor defines the configurations of the virtual machines. We can create server with different compute, memory and storage according to our needs
+
+\5. Create a new network of 64 IP addresses in the Network tab and enable DHCP for 32 of 
+the IPs using either the GUI or the CLI.
+
+Under Network Click on Create network and follow the steps in the below screenshot to have DHCP enabled network
+
+<img width="206" alt="image" src="https://user-images.githubusercontent.com/98084044/217148286-dadcc021-510b-4ac0-a2e8-369764db7882.png">
+<img width="154" alt="image" src="https://user-images.githubusercontent.com/98084044/217148310-e711ae97-bbee-4f63-970c-cb5109c3755d.png">
+<img width="224" alt="image" src="https://user-images.githubusercontent.com/98084044/217148338-7f5ea004-d5e9-48ba-a1a2-269a7d745898.png">
+
+\6. Create a router that connects this new network with the existing “public network” using 
+either the GUI or the CLI.
+
+Under Router click on create router and assign public external network so that internet can be reachable. Once done we need to add interface to the router in the DHCP network so that this router can act as a default gateway  for our network that we created.
+
+<img width="153" alt="image" src="https://user-images.githubusercontent.com/98084044/217148386-80e582e1-23d7-4b87-891c-b2efd54532cd.png">
+<img width="272" alt="image" src="https://user-images.githubusercontent.com/98084044/217148404-e1c71dc6-7648-4f60-be79-da5ae3317e45.png">
+
+
+\7. Start two instances with the Cirros image present that connects to the new network of 
+64 IPs using either the GUI or the CLI.
+
+Click on Launch instance under Instances, add image, key-pair, security network and network  as given in below screenshots. Once the VM is created we could see it’s receiving IP from the DHCP network we created. We are enabling Floating IPs for each VM so that internet can be reached.
+<img width="185" alt="image" src="https://user-images.githubusercontent.com/98084044/217148546-0a875580-741c-40f7-a4ba-9b002462b1ca.png">
+<img width="224" alt="image" src="https://user-images.githubusercontent.com/98084044/217148571-6140d7b5-caba-431a-9274-33e8ce92812e.png">
+<img width="251" alt="image" src="https://user-images.githubusercontent.com/98084044/217148595-57699c7a-a8b9-4634-af5a-c86083188b63.png">
+<img width="276" alt="image" src="https://user-images.githubusercontent.com/98084044/217148632-2ecefa8c-0ca4-4d8e-bc38-b79028a47a82.png">
+<img width="275" alt="image" src="https://user-images.githubusercontent.com/98084044/217148649-05985604-7b3f-4a1f-9f48-ad9acd17cabd.png">
+<img width="174" alt="image" src="https://user-images.githubusercontent.com/98084044/217148685-2868b7c8-45f2-490c-bce7-031801ca5bd7.png">
+<img width="262" alt="image" src="https://user-images.githubusercontent.com/98084044/217148718-45aaa044-f1f9-468b-8999-261a7e4e23b2.png">
+<img width="274" alt="image" src="https://user-images.githubusercontent.com/98084044/217148736-5392357a-28c3-4c4f-ace0-5bef39f9b35a.png">
 
 Objective 1 - Gayathri
-
-
-a. Nova: Nova is for provisioning compute instances and supporting the creation of virtual machines, bare metal servers, and limited support of containers.
-b. Swift: Swift is an object storage service for cloud storage like google drive, apple cloud, microsoft azure. It is used mainly to provide storage facilities to users that is hosted on the cloud.
-
-c. Cinder: Cinder is a block storage service that provides volumes to Nova virtual machines, bare metal hosts, containers, and services that contain the VMs in terms of storage service.
-
-d. Neutron: Neutron is a networking component of OpenStack and it provides network connectivity.
-
-e. Glance: Glance is an image service of OpenStack where users can figure out what images to use for different VMs hosted on the network.
-
-f. Keystone: Keystone is an identity service of OpenStack and it provides API client authentication, service discovery, and distributed multi-tenant authorization for authentication services like LDAP, OAuth, OpenID Connect, SAML, etc.
-
-g. Horizon: Horizon provides the dashboard or web-based UI for OpenStack services.
-
-What is the difference between Users and Roles?
-
-Users are part of one or more projects. A role defines which actions users can perform in each of those projects that it is a part of.
-
-What is a hypervisor and which hypervisors are supported in OpenStack?
-
-Hypervisor is a software that is built for separating a system’s OS and resources from the hardware to the VMs associated with it. We can run any type of hypervisor in OpenStack with the default being KVM. Following hypervisors are supported in OpenStack:
-
- KVM, VMware, ESX/ESXi, XenServer, Hyper-V, Ironic, UML, LXC, QEMU 
- 
-Explain the meaning of ‘flavor’ in OpenStack.
-
-Flavor is a measure of the compute, memory, and storage capacity of a VM.
-
-Create a new network of 64 IP addresses in the Network tab and enable DHCP for 32 of the IPs using either the GUI or the CLI.
-Create a router that connects this new network with the existing “public network” using either the GUI or the CLI.
-Start two instances with the Cirros image present that connects to the new network of 64 IPs using either the GUI or the CLI.
-Using GUI for the sake of simplicity:
-Steps:
-1. On the VM's GUI open the network tab under Project->Networks->Network. Add the network name, subnets and the 64 IP addresses. Provide the Gateway IP and create the instance.
-2. A new router is created with the "public network" with subnet and IP address to the public network. The netowrk connections are made through Nova being the availability zone. Once done, the interfaces tab will display the routes and the fixed IPs to the network.
-3. For both the VM instances, Cirros image is used while connecting to the 64 IPs network. To enusure the VMs are started and functioning, in the GUI the status of the VMs should be "running".
-
-
-
-
 Objective 2 - Nikhitha
 # Objective 2 – Auto-scaling application using Python
 ###### documented by <em>Nikhitha Atluri</em>
