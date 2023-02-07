@@ -20,24 +20,30 @@ You are working in a cloud firm that has a single instance of an application run
 
 
 **Step 1:** Create a network VN-A using the steps in the previous objective
+
 **Step 2:** Create a VM with a cirros image and ngn flavor and allocate a floating IP address, for it to be access the internet 
 
-
-<picture>
 <img width="612" alt="image" src="https://user-images.githubusercontent.com/38699144/217115339-d0161cd4-7f7b-46d4-9897-9f45ac8b1521.png">
-</picture>
+
+
 
 **Step 3:** On your openstack server, create a python file in the devstack environment. To get the contents of the instances, we don’t need to SSH into the instances, rather, we can use the Nova REST API to poll any information. We can connect to a project in openstack by using the client module in the following way.***[Obj 2a]***
+
 <img width="554" alt="image" src="https://user-images.githubusercontent.com/38699144/217115308-4e825cfc-5687-4d0b-a798-ca63e0d7e830.png">
+
+
 
 **Step 4:** We need to check if the cpu/memory used is greater than 20% of the total memory. If it is, then we have to create a new instance with the required specifications. In the code snippet mentioned below, we check for CPU utilization every 40 seconds***.[Obj 2b,2c, 2d]***
 
 <img width="540" alt="image" src="https://user-images.githubusercontent.com/38699144/217115368-2cf2de97-459f-488e-864c-580436f2f66b.png">
 
 
+
 **Step 5:** Check the number of available volumes you can create and allocate instances accordingly. In this objective, we were asked to limit the scaling size to 4, hence a maximum of only 4 instances could be made and the program ends after that.***[Obj 2d]***
 
+
 <img width="292" alt="image" src="https://user-images.githubusercontent.com/38699144/217115391-8cbe1fcf-1831-4f71-afc5-27ea908041ed.png">
+
 
 <img width="667" alt="image" src="https://user-images.githubusercontent.com/38699144/217115427-d01b2283-0c10-4622-a0e1-4360ac8938e7.png">
 
