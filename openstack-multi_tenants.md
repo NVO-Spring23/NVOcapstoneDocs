@@ -1,18 +1,18 @@
 # Objective 1 - Mayuri
 # Objective 1 - OpenStack: Overview
 \1. Explain the following components of OpenStack -
-a. Nova -   It is the compute component responsible for the vm creation
-b. Swift -   used for object storage and horizontally scalable. It is ideal for storing unstructured data.
-c. Cinder - Provides block storage in Openstack called as Cinder Volumes It manages snapshots.
-d. Neutron – This creates network infrastructure for the virtual machines.
-e. Glance – it is used for image management for VMs. It stores the images and template for VM
-f. Keystone – It is responsible for authentication.
-g. Horizon - It provides the web-based UI for services like nova, neutron, cinder etc.
+\a. Nova -   It is the compute component responsible for the vm creation
+\b. Swift -   used for object storage and horizontally scalable. It is ideal for storing unstructured data.
+\c. Cinder - Provides block storage in Openstack called as Cinder Volumes It manages snapshots.
+\d. Neutron – This creates network infrastructure for the virtual machines.
+\e. Glance – it is used for image management for VMs. It stores the images and template for VM
+\f. Keystone – It is responsible for authentication.
+\g. Horizon - It provides the web-based UI for services like nova, neutron, cinder etc.
 \2. What is the difference between Users and Roles?
-Roles defines the set of privileges that the users can perform.
+\Roles defines the set of privileges that the users can perform.
 \3. What is a hypervisor and which hypervisors are supported in OpenStack?
 
-The hypervisor manages virtual machines. Openstack supports hypervisors like KVM, VMware sphere, QEMU etc.
+\The hypervisor manages virtual machines. Openstack supports hypervisors like KVM, VMware sphere, QEMU etc.
 \4. Explain the meaning of ‘flavor’ in OpenStack.
 
 Flavor defines the configurations of the virtual machines. We can create server with different compute, memory and storage according to our needs
